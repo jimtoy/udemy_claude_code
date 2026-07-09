@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0a0e14;
+  color: #e8edf5;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#overlay > * {
+  pointer-events: auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#menu {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(12, 20, 35, 0.92) 0%, rgba(5, 8, 14, 0.97) 70%);
+  text-align: center;
+  padding: 2rem;
+}
+
+#menu h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #7dd3fc, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  max-width: 32rem;
+}
+
+.controls {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.controls h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.controls ul {
+  list-style: none;
+}
+
+.controls li {
+  margin: 0.6rem 0;
+  color: #cbd5e1;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.8rem;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.35rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow: 0 2px 0 #0f172a;
+}
+
+#start-btn, #restart-btn {
+  padding: 0.9rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f172a;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#start-btn:hover, #restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.35);
+}
+
+#hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-row {
+  display: flex;
+  gap: 2rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.stat {
+  min-width: 180px;
+}
+
+.stat .label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.bar-track {
+  height: 10px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.bar-fill.player {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.bar-fill.enemy {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: rgba(56, 189, 248, 0.85);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  font-weight: 300;
+  user-select: none;
+}
+
+#ammo {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+#ammo.cooldown {
+  color: #f59e0b;
+}
+
+#message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 14, 0.88);
+  text-align: center;
+}
+
+#message-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.75rem;
+}
+
+#message-title.victory {
+  color: #4ade80;
+}
+
+#message-title.defeat {
+  color: #f87171;
+}
+
+#message-text {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}

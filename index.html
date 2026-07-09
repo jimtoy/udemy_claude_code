@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Strike — 3D FPS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="overlay">
+    <div id="menu">
+      <h1>Arena Strike</h1>
+      <p class="tagline">First-person arena duel against a rogue combat drone.</p>
+      <div class="controls">
+        <h2>Controls</h2>
+        <ul>
+          <li><kbd>↑</kbd> <kbd>↓</kbd> Move forward / back</li>
+          <li><kbd>←</kbd> <kbd>→</kbd> Turn left / right</li>
+          <li><kbd>Space</kbd> Fire pulse rifle</li>
+        </ul>
+      </div>
+      <button id="start-btn">Enter Arena</button>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div class="hud-row">
+        <div class="stat">
+          <span class="label">Health</span>
+          <div class="bar-track"><div id="player-health" class="bar-fill player"></div></div>
+        </div>
+        <div class="stat">
+          <span class="label">Enemy</span>
+          <div class="bar-track"><div id="enemy-health" class="bar-fill enemy"></div></div>
+        </div>
+      </div>
+      <div id="crosshair">+</div>
+      <div id="ammo">READY</div>
+    </div>
+
+    <div id="message" class="hidden">
+      <h2 id="message-title"></h2>
+      <p id="message-text"></p>
+      <button id="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <canvas id="game-canvas"></canvas>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
