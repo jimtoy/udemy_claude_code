@@ -1,4 +1,4 @@
-# Arena Strike — 3D FPS
+# Arena Strike — 3D FPS 
 
 A browser-based first-person arena shooter built with Three.js. Face off against an AI combat drone in a enclosed arena.
 
